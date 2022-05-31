@@ -1,0 +1,89 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block body %}
+
+<main class="container">
+ 
+  <!-- Left Column / Headphones Image -->
+  <div class="left-column">
+    <img class="active" src="{{product.image.url}}" alt="">
+  </div>
+ 
+ 
+  <!-- Right Column -->
+  <div class="right-column">
+ 
+    <!-- Product Description -->
+    <div class="product-description">
+      <span class="title">APPLE</span>
+      <h1>{{product.name}}</h1>
+      <p class="title">{{product.description}}</p>
+    </div>
+ 
+    <!-- Product Pricing -->
+    <div class="product-price">
+      <span class="title">${{product.price}}</span>
+      <div>
+        <div class="product-price"><a href="{% url 'users:sellerprofile' product.seller_name.id %}">Seller:</span>{{product.seller_name}}</span></a></div>
+        <div class="product-price">Contact:</span>{{product.seller_name.profile.contact_number}}</span></div>
+      </div>
+      <a href="" class="cart-btn" id="buynow">Buy Now</a>
+      <!-- <form>
+        <input class="cart-btn" type="submit" id="buynow">Buy Now</input>
+      </form> -->
+    </div>
+  </div>
+</main>
+    <script src="http://js.stripe.com/v3/"></script>
+      <script>
+        var stripe = Stripe('{{ stripe_pk }}');
+        var checkoutButton = document.getElementById('buynow');
+        checkoutButton.addEventListener('click',fecthUrl);
+
+        async function fecthUrl(){
+          //e.preventDefault();
+          const response = await fetch("{% url 'myapp:api_checkout_session' id=product.id %}",{method:'POST',});
+          var session = await response.json();
+          if (response) {
+            redirectStripe = stripe.redirectToCheckout({sessionId:session.id})
+            //redirectStripe = fetch("{% url 'myapp:checkout_show'%}",{method:'GET',})
+            return redirectStripe;
+          }
+          else console.log("Loading...");
+        }
+
+
+
+        /*
+        var response =  checkoutButton.addEventListener('click',function(){
+                fetch("{% url 'myapp:api_checkout_session' id=product.id %}",{method:'POST',})
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(session){
+                  return stripe.redirectToCheckout({sessionId:session.id});
+                })
+                .then(function(result){
+                    if(result.error){
+                        alert(result.error.message);
+                    }
+                    else
+                    {
+                      console.error(result);
+                    }
+                })
+                .catch(function(error){
+                    console.error('Error',error);
+                })
+            });
+            */
+      </script>
+{% endblock %}
+
+<!--
+<h1>Detail {{product.name}}</h1>
+<span><img src="{{product.image.url}}" alt=""></span>
+<span class="text__item">{{product.price}} <br/></span>
+<span class="text__item">{{product.description}}<br/></span>
+
+-->

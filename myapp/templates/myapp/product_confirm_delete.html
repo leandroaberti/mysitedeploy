@@ -1,0 +1,18 @@
+{% extends 'myapp/base.html' %}
+{% block body %}
+<h1>Delete Product</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="input-text">
+        <label>Are you sure to delete this product?</label>
+    </div>
+    <div class="input-text">
+        <label>{{ object }}</label>
+    </div>
+    <div class="input-text">
+        <img src="{{product.image.url}}" alt="">
+    </div>
+    <button class="del-btn" type="submit">Confirm</button>
+    <a class="cancel-btn" href="{% url 'myapp:products' %}">Cancel</a>
+</form>
+{% endblock %}

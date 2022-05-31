@@ -1,0 +1,24 @@
+{% extends 'myapp/base.html' %}
+{% block body  %}
+
+<form class="add-form" method="POST" enctype="multipart/form-data">
+    <!-- CSRF token: Cross Site Request Forgery  -->
+    {% csrf_token %}
+    <h1> + Update Product </h1>
+    <div class="input-text">
+        <input placeholder="Name" value="{{product.name}}" type="text" name="name" id="name" required/>
+    </div>
+    <div class="input-text">
+        <input placeholder="Price" value="{{product.price}}" type="text" name="price" id="price" required/>
+    </div>
+    <div class="input-text">
+        <input placeholder="Description" value="{{product.description}}" type="text" name="description" id="description" required/>  
+    </div>
+    <div class="input-text">
+        <img src="{{product.image.url}}" alt="image">
+        <input class="load-btn" placeholder  type="file" accept="image/*" name="upload" id="upload">
+    </div>
+    
+    <button class="cart-btn" type="submit">Edit Product</button>
+</form>
+{% endblock %}

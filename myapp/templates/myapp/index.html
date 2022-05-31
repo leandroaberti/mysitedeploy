@@ -1,0 +1,53 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block body %}
+<h1>This is Product List</h1>
+<div>
+    <span class="imput-text">
+      <h2>Search Products</h2>
+      <form method="GET">
+          <input placeholder="Type product to search" type="text" name="product_name" id="product_name">
+      </form>
+    </span>
+</div>
+<div>
+  {#% for product in products %#}
+  {% for product in page_obj %}
+      <a href="{% url 'myapp:productdetail' product.id %}">
+        
+        <main class="container2">
+  
+          <!-- Left Column / Headphones Image -->
+          <div class="left-column2">
+            <img class="active" src="{{product.image.url}}" alt="">
+              <h1>{{product.name}}</h1>
+              <p class="title">{{product.description}}</p>
+        
+            <!-- Product Pricing -->
+            <div class="product-price">
+              <span class="title">${{product.price}}</span>
+              <div class="product-price">Posted by:<span>{{product.seller_name}}</span></div>
+              <a href="#" class="cart-btn">Add to cart</a>
+            </div>
+          </div>
+        </main>
+      </a>
+  {% endfor %}
+</div>
+<!-- pagination -->
+<div>
+    <span class="input-text">
+      {% if page_obj.has_previous %}
+        <a href="?page=1">First</a>
+        <a href="?page={{page_obj.previous_page_number}}">Previous</a>
+      {% endif %}
+      <span class="input-text">  
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+      </span>
+      {% if page_obj.has_next %}
+        <a href="?page={{page_obj.next_page_number}}">Next</a>
+        <a href="?page={{page_obj.paginator.num_pages}}">Last</a>
+      {% endif %}
+    </span>
+</div>
+{% endblock %}

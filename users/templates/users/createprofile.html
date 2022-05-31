@@ -1,0 +1,15 @@
+{% extends 'myapp/base.html' %}
+{% block body %}
+    <form class="add-form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="">Upload profile image</label>
+            <input placeholder="Upload an image profile" type="file" accept="image/*" name="upload" id="upload">
+        </div>
+        <div>
+            <label for="">Contact Number</label>
+            <input placeholder="9999999" type="text" name="contact_number" id="contact_number">
+        </div>
+        <button class="cart-btn" type="submit" name="Add">Add</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends 'myapp/base.html' %}
+{% block body %}
+    <h1>{{user.username}}</h1>
+    <img src="{{user.profile.image.url}}" alt ="">
+{% endblock %}

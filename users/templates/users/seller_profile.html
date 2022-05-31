@@ -1,0 +1,6 @@
+{% extends 'myapp/base.html' %}
+{% block body %}
+    <h1>Seller Profile:<span>{{seller.username}}</span></h1>
+    <div class="input-text">Contact: <span class="input-text">{{seller.profile.contact_number}}</span></div>
+    <img src="{{seller.profile.image.url}}" alt ="">
+{% endblock %}

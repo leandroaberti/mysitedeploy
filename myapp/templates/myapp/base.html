@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+        <link type="iamge/png" sizes="16x16" rel="icon" href="../../../media/img/icons8-globe-africa-16.png">
+    </head>
+    <body>
+        <header>
+            <a href="#"><img class="logo" src="{% static 'myapp/img/django-logo.png' %}" alt=""></a>
+            <span class="title">Buy & Sell</span>
+            <nav> 
+                <ul class="nav__links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="{% url 'myapp:add_product' %}">Post and Add</a></li>
+                    <li><a href="{% url 'myapp:products' %}">View Products</a></li>
+                    <li><a href="{% url 'myapp:mylistings' %}">My Listings</a></li>
+                    <li>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'users:logout' %}">Logout</a>
+                            <a href="{% url 'users:profile' %}">Profile</a>
+                        {% else %}
+                            <a href="{% url 'users:login' %}">Login</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

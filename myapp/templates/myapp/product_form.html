@@ -1,0 +1,25 @@
+{% extends 'myapp/base.html' %}
+{% block body  %}
+
+<form class="add-form" method="POST" enctype="multipart/form-data">
+    <!-- CSRF token: Cross Site Request Forgery  -->
+    {% csrf_token %}
+    <h1> + Add Product </h1>
+    <div class="input-text">
+        {{form.name}}
+    </div>
+    <div class="input-text">
+        {{form.price}}
+    </div>
+    <div class="input-text">
+        {{form.description}}
+    </div>
+    <div class="input-text">
+        {{form.image}}
+    </div>
+    <div class="hidden input-text">
+        {{form.seller_name}}
+    </div>
+    <button class="cart-btn" type="submit">Add Product</button>
+</form>
+{% endblock %}

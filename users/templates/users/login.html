@@ -1,0 +1,22 @@
+{% extends 'myapp/base.html' %}
+{% block body %}
+<h1>Login</h1>
+<div>
+    <form class="add-form" method="POST">
+        {% csrf_token %}
+        {{form.non_field_errors}}
+        {% for field in form %}
+        <div>
+            <div>{{ field.label_tag }}</div>
+            <div>{{ field }}</div>
+            {% if field.errors %}
+                <div><strong>{{ field.errors }}</strong></div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <button class="cart-btn" type="submit">Login</button>
+    </form>
+    <div>Don't have an account</div>
+    <a class="input-text" href="{% url 'users:register' %}">Register</a>
+</div>
+{% endblock %}

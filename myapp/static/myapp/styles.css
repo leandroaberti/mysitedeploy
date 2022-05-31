@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252A;
+}
+
+li,
+a,
+button {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.title, h1 {
+    color: white;
+    font-size: large;
+    font-family: "Roboto", sans-serif;
+}
+
+
+p a:hover {
+    color: lightgreen;
+}
+
+.text__item {
+    color: white;
+    font-size: 14px;
+    line-height: 3;
+    font-family: "Roboto", sans-serif;
+}
+
+.nav__links {
+    list-style: none;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover{
+    color: #0088a9;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+/* Basic Styling */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+  }
+
+  .container2 {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    display: inline-block;
+  }
+
+  /* Columns */
+.left-column {
+    width: 65%;
+    position: relative;
+  }
+
+  .left-column2 {
+    width: 80%;
+    position: relative;
+  }
+   
+   
+  .right-column {
+    width: 50%;
+    margin-top: 60px;
+  }
+
+/* Left Column */
+.left-column img {
+    width: 70%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+   
+  .left-column img.active {
+    opacity: 1;
+  }
+
+  /* Product Description */
+.product-description {
+    border-bottom: 1px solid #E1E8EE;
+    margin-bottom: 20px;
+  }
+  .product-description span {
+    font-size: 12px;
+    color: #358ED7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .product-description h1 {
+    font-weight: 300;
+    font-size: 52px;
+    color: #43484D;
+    letter-spacing: -2px;
+  }
+  .product-description p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #86939E;
+    line-height: 24px;
+  }
+
+  /* Product Price */
+.product-price {
+    display: flex;
+    align-items: center;
+  }
+   
+  .product-price span {
+    font-size: 26px;
+    font-weight: 300;
+    color: #43474D;
+    margin-right: 20px;
+  }
+   
+  .cart-btn {
+    display: inline-block;
+    background-color: #7DC855;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 12px 30px;
+    transition: all .5s;
+  }
+  .cart-btn:hover {
+    background-color: #64af3d;
+  }
+
+  /* Responsive */
+@media (max-width: 940px) {
+    .container {
+      flex-direction: column;
+      margin-top: 60px;
+    }
+   
+    .left-column,
+    .right-column {
+      width: 100%;
+    }
+   
+    .left-column img {
+      width: 300px;
+      right: 0;
+      top: -65px;
+      left: initial;
+    }
+  }
+   
+  @media (max-width: 535px) {
+    .left-column img {
+      width: 220px;
+      top: -85px;
+    }
+  }
+
+
+
+  .input-text {
+    margin: 12px 0;
+    color: white;
+  }
+
+  input {
+    color: white;
+  }
+
+  label {
+    color: white;
+    font-size: 14px;
+  }
+
+  .load-btn {
+    display: inline-block;
+    background-color: #55abc8;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 12px 30px;
+    transition: all .5s;
+    margin-bottom: 10px;
+  }
+  .load-btn:hover {
+    background-color: #64af3d;
+  }
+
+
+  .del-btn {
+    display: inline-block;
+    background-color: #c85555;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 12px 30px;
+    transition: all .5s;
+    margin-bottom: 10px;
+  }
+  .del-btn:hover {
+    background-color: #ac2b2b;
+  }
+
+  .cancel-btn {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}

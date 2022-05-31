@@ -1,0 +1,27 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block body %}
+<h1>This is Product List of {{products.0.seller_name}}</h1>
+{% for product in products %}
+    <a href="{% url 'myapp:productdetail' product.id %}">
+    
+    <main class="container2">
+
+        <!-- Left Column / Headphones Image -->
+        <div class="left-column2">
+        <img class="active" src="{{product.image.url}}" alt="">
+        <span class="iten-text">
+            <div>{{product.name}}</div>
+            <div>{{product.price}}</div>
+            <div>{{product.description}}</div>
+        </span>
+        <span>
+            <a href="{% url 'myapp:update_product' product.id %}" class="cart-btn">Edit</a>
+            <a href="{% url 'myapp:delete_product' product.id %}" class="del-btn">Delete</a>
+        </span>
+        </div>
+    </main>
+    </a>
+{% endfor %}
+
+{% endblock %}
