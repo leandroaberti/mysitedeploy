@@ -6,6 +6,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.urls import reverse
 
+#this is a new product
 # Create your models here.
 class Product(models.Model): #create a Model class
     #id = models.AutoField(primary_key=True)
